@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RandomsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[RandomsController::class, 'index']);
+Route::name("radoms.get-all")->get('/get-all',[RandomsController::class, 'getAll']);
+Route::name("radoms.initialize")->post('/',[RandomsController::class, 'store']);
+
